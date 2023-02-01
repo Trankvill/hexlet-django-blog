@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from hexlet_django_blog import views
 
 urlpatterns = [
+    path('', views.index), # <- добавляем новое правило обработки главной страницы - назначение обработчиком главной страницы вьюху views.index
+    path('about/', views.about), # <- добавляем маршрут about/ вьюху и шаблон
     path('admin/', admin.site.urls),
 ]
