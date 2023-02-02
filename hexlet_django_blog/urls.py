@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include  # <- добавлен include
 from hexlet_django_blog import views
 
 urlpatterns = [
     path('', views.index), # <- добавляем новое правило обработки главной страницы - назначение обработчиком главной страницы вьюху views.index
     path('about/', views.about), # <- добавляем маршрут about/ вьюху и шаблон
+    path('article/', include('hexlet_django_blog.article.urls')),  # <- добавляем путь в urls.py основного пакета путь, включающий в себя вьюху подпакета, которая описана путём до urls.py, содержащегося в подпакете нового приложения
     path('admin/', admin.site.urls),
 ]
