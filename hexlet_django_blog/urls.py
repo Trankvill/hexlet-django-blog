@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include  # <- добавлен include
 from hexlet_django_blog import views
+from hexlet_django_blog.views import HomePageView
 
 urlpatterns = [
-    path('', views.index), # <- добавляем новое правило обработки главной страницы - назначение обработчиком главной страницы вьюху views.index
+    path('', HomePageView.as_view()), # <- добавляем новое правило обработки главной страницы - назначение обработчиком главной страницы вьюху views.index
     path('about/', views.about), # <- добавляем маршрут about/ вьюху и шаблон
     path('article/', include('hexlet_django_blog.article.urls')),  # <- добавляем путь в urls.py основного пакета путь, включающий в себя вьюху подпакета, которая описана путём до urls.py, содержащегося в подпакете нового приложения
     path('admin/', admin.site.urls),
