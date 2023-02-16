@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+<form action="{% url 'comment_create' %}" method="post">
+	{% csrf token %}  <!-- Защита от scrf-атак -->
+	<table border="1">
+		{{ form }}
+	</table>
+	<input type="submit" value="Сохранить">
+</form>
