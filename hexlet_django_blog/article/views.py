@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .forms import CommentArticleForm, ArticleForm
 from django.forms import ModelForm
