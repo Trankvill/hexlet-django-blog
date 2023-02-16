@@ -21,6 +21,6 @@ from hexlet_django_blog.views import HomePageView
 urlpatterns = [
     path('', HomePageView.as_view()), # <- добавляем новое правило обработки главной страницы - назначение обработчиком главной страницы вьюху views.index
     path('about/', views.about), # <- добавляем маршрут about/ вьюху и шаблон
-    path('article/', include('hexlet_django_blog.article.urls')),  # <- добавляем путь в urls.py основного пакета путь, включающий в себя вьюху подпакета, которая описана путём до urls.py, содержащегося в подпакете нового приложения
+    path('articles/', include('hexlet_django_blog.article.urls')),  # <- добавляем путь в urls.py основного пакета путь, включающий в себя вьюху подпакета, которая описана путём до urls.py, содержащегося в подпакете нового приложения
     path('admin/', admin.site.urls),
 ]
