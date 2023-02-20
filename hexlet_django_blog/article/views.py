@@ -92,3 +92,14 @@ class ArticleFormEditView(View):
 
 
         return render(request, 'update.html', {'form': form, 'article_id':article_id})
+
+
+class ArticleFormDestroyView(View):
+
+
+    def post(self, request, *args, **kwargs):
+        article_id = kwargs.get('id')
+        article = Article.objects.get(id=article_id)
+        if article:
+            article.delete()
+        return redirect('articles')
